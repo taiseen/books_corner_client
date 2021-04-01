@@ -1,0 +1,65 @@
+.book_box {
+    margin       : 30px 10px;
+    width        : 400px;
+    border-radius: 15px;
+    box-shadow   : 0 0 10px 1px rgba(0, 0, 0, 0.5);
+
+    display  : flex;
+    flex-flow: column;
+}
+
+.book_cover_photo {
+    margin          : 23px 23px 15px 23px;
+    width           : 350px;
+    text-align      : center;
+    background-color: #F1F1F1;
+    border-radius   : 15px
+}
+
+.book_cover_photo img {
+    width        : 75%;
+    margin       : 20px;
+    border-radius: 15px;
+    object-fit   : cover;
+
+}
+
+.book_info {
+    display     : flex;
+    flex-flow   : column wrap;
+    padding-left: 25px;
+
+}
+
+.book_price_and_buy {
+
+    margin-top     : 10px;
+    display        : flex;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+    padding-right : 25px;
+}
+
+.book_price_and_buy p {
+    font-size  : 30px;
+    font-weight: bold;
+    color      : #6946F4;
+}
+
+.book_price_and_buy button {
+    font-size       : 20px;
+    padding         : 10px 25px;
+    border-radius   : 8px;
+    border          : none;
+    outline         : none;
+    color           : white;
+    background-color: rgb(105, 70, 244);
+    cursor          : pointer;
+    transition      : .3s ease-in-out;
+}
+
+
+.book_price_and_buy button:hover {
+    box-shadow: 0 5px 10px 0 rgb(79 42 222 / 70%);
+}

@@ -1,0 +1,74 @@
+.sideBar {
+    background-color: #19103F;
+    color           : white;
+    flex-basis      : 550px;
+}
+
+.logo {
+    padding      : 20px;
+    font-size    : 35px;
+    margin-bottom: 20px;
+}
+
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    padding    : 20px;
+    display    : flex;
+    align-items: center;
+}
+
+.menu ul li:hover {
+    background-color: #2F226A;
+    cursor          : pointer;
+}
+
+.menu ul li img {
+    width       : 30px;
+    margin-right: 15px;
+}
+
+.menu ul a {
+    font-size      : 22px;
+    color          : white;
+    text-decoration: none;
+}
+
+
+/* 
+####################################################
+                Book Area Start 
+#################################################### 
+*/
+
+.book_input_list,
+.book_input_area {
+    display         : flex;
+    flex-flow       : column;
+    background-color: antiquewhite;
+    width           : 100%;
+}
+
+.bannerTitle {
+    padding         : 20px 30px;
+    background-color: white;
+    font-size       : 30px;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+}
+
+.bannerTitle a {
+    text-decoration: none;
+    font-size      : 18px;
+    padding        : 10px 30px;
+    border-radius  : 10px;
+}
+
+.bannerTitle a:hover {
+    background-color: #2F226A;
+    color           : white;
+}

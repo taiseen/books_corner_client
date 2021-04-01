@@ -1,0 +1,62 @@
+.mani_admin {
+    margin : 0 auto;
+    width  : 100vw;
+    height : 100vh;
+    display: flex;
+}
+
+.book_list_container {
+    margin          : 30px 20px;
+    padding         : 20px;
+    background-color: white;
+    border-radius   : 10px;
+}
+
+table {
+    width          : 100%;
+    table-layout   : auto;
+    text-align     : left;
+    border-collapse: collapse;
+    font-size      : 20px;
+}
+
+thead tr th {
+    background-color: #F5F6FA;
+    padding         : 20px;
+}
+
+tbody tr td {
+    padding: 0px 20px;
+}
+
+tbody tr td img {
+    width : 45px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+tr td:last-child {
+    padding   : 10px 0px;
+    text-align: center;
+    width     : 120px;
+}
+
+tr:hover {
+    background-color: #ddd;
+    cursor          : pointer;
+}
+
+
+/* 
+####################################################
+            Responsive For Both Page
+#################################################### 
+*/
+
+@media screen and (max-width : 850px) {
+
+    .mani_admin {
+        flex-direction: column;
+    }
+
+}

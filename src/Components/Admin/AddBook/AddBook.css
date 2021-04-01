@@ -1,0 +1,81 @@
+.book_form_container {
+    padding  : 30px 20px;
+    display  : flex;
+    flex-flow: column wrap;
+}
+
+.book_form {
+
+    width           : 100%;
+    padding         : 30px;
+    border-radius   : 15px;
+    background-color: white;
+    display         : flex;
+    flex-flow       : wrap;
+    justify-content : space-between;
+    align-items     : center;
+}
+
+.book_form input {
+    width        : 100%;
+    padding      : 10px;
+    margin-bottom: 20px;
+    font-size    : 20px;
+}
+
+.book_form input:focus {
+    outline: none;
+}
+
+
+.input_flex {
+    width: 550px;
+}
+
+.inputFile {
+    display: none;
+}
+
+
+.file_width img {
+    width       : 30px;
+    margin-right: 7px;
+}
+
+.inputLabel {
+    width           : 205px;
+    border          : 1px solid #6946F4;
+    border-radius   : 8px;
+    background-color: #E3DCFF;
+    color           : #6946F4;
+    padding         : 2px 25px;
+    cursor          : pointer;
+    transition      : .4s ease-in-out;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+
+}
+
+.inputLabel:hover {
+    box-shadow: 2px 2px 8px 0px #6946f466;
+}
+
+.btn-success {
+    float: right;
+}
+
+.btn-success,
+.btn-danger {
+    padding: 10px 20px !important;
+    margin : 10px;
+}
+
+
+@media screen and (max-width:560px) {
+
+    .sideBar {
+        width: 100%;
+    }
+
+}
