@@ -16,7 +16,7 @@ const Home = () => {
     console.log(allBooks);
     // GET data from server
     useEffect(() => {
-        const url = `http://localhost:5000/allBooks`;
+        const url = `https://blueberry-surprise-27043.herokuapp.com/allBooks`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

@@ -15,7 +15,6 @@ import PageNotFound from './Components/PageNotFound/PageNotFound';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './Components/FireBase/FireBaseConfig';
-import AddEvent from './Components/AddEvent/AddEvent';
 import AllBooks from './Components/Admin/AllBooks/AllBooks';
 import AddBook from './Components/Admin/AddBook/AddBook';
 
@@ -45,7 +44,7 @@ const App = () => {
                     </Route>
 
                     <Route path="/order">
-                        <AddEvent />
+                        
                     </Route>
 
                     <Route path="/admin/allBookList">

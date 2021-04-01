@@ -26,7 +26,7 @@ const AddBook = () => {
 
         //console.log(bookInfo);
 
-        const url = `http://localhost:5000/addBook`;
+        const url = `https://blueberry-surprise-27043.herokuapp.com/addBook`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

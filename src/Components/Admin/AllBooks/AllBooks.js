@@ -17,7 +17,7 @@ const AllBooks = () => {
 
     // GET data from server
     useEffect(() => {
-        const url = `http://localhost:5000/allBooks`;
+        const url = `https://blueberry-surprise-27043.herokuapp.com/allBooks`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -32,7 +32,7 @@ const AllBooks = () => {
 
     const handleDelete = (id) => {
         console.log("Delete ==> ", id);
-        const url = `http://localhost:5000/deleteBook/${id}`;
+        const url = `https://blueberry-surprise-27043.herokuapp.com/deleteBook/${id}`;
         fetch(url, { 
             method: 'DELETE',
         })
