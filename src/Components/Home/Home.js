@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import AllBooks from '../Admin/AllBooks/AllBooks';
-
 import BookBox from '../BookBox/BookBox';
-
-// import AddEvent from '../AddEvent/AddEvent';
-// import Events from '../Events/Events';
-
 import './Home.css'
+import searchIcon from '../../icons/search.png';
 
 const Home = () => {
 
@@ -48,7 +43,7 @@ const Home = () => {
 
             <div className="main_home">
                 <div className="search">
-                    <img src="icons/search.png" alt="" />
+                    <img src={searchIcon} alt="" />
                     <input type="text" placeholder="Search Your Book" />
                     <button>Search</button>
                 </div>

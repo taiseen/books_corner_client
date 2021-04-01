@@ -9,7 +9,7 @@ import del from '../../../icons/delete.png'
 const AllBooks = () => {
 
     const [allBooks, setAllBooks] = useState([]);
-    console.log(allBooks);
+    console.log("All BOOK ==> ",allBooks);
 
     // const { _id, bookName, authorName, price, imageURL } = allBooks;
     // console.log(bookName);

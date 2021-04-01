@@ -1,3 +1,9 @@
+span{
+    background: linear-gradient(90deg, rgb(73, 67, 67), rgb(230, 6, 6));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .book_form_container {
     padding  : 30px 20px;
     display  : flex;

@@ -77,7 +77,7 @@ const AddBook = () => {
             <section className="book_input_area">
 
                 <div className="bannerTitle">
-                    <h3>Add Book</h3>
+                    <h3>Add Book <span>and Please <strong>Wait few seconds</strong> for conformation after Uploading Book Cover Photo</span></h3>
                     <Link to="/home"><a>Home</a></Link>
                 </div>
 
