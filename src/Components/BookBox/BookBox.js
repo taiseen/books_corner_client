@@ -24,8 +24,7 @@ const BookBox = (props) => {
 
         //console.log({orderByUser});
 
-        const url = `http://localhost:5000/bookOrder`;
-        //const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
+        const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
