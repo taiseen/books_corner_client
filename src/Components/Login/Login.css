@@ -1,0 +1,132 @@
+*,
+p {
+    padding   : 0;
+    margin    : 0;
+    box-sizing: border-box;
+}
+
+
+
+.login_area {
+    margin         : 100px auto 30px;
+    width          : 550px;
+    height         : 520px;
+    border         : 1px solid black;
+    padding        : 10px;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+
+
+}
+
+.login_area h3 {
+    margin       : 0;
+    margin-bottom: 10px;
+    margin-left  : 25px;
+
+    font-size: 40px;
+
+}
+
+.login_area p {
+    text-align: center;
+    margin-top: 0;
+    font-size : 22px;
+}
+
+.login_area a {
+    color: #6946F4;
+}
+
+form {
+    display        : flex;
+    flex-flow      : column wrap;
+    justify-content: space-around;
+    padding        : 20px;
+}
+
+.labelStyle {
+    font-size   : 18px;
+    float       : left;
+    padding-left: 10px;
+}
+
+form a {
+    font-size: 18px;
+    float    : right;
+}
+
+.inputStyle {
+    padding      : 8px;
+    margin-top   : 0;
+    margin-bottom: 30px;
+    font-size    : 25px;
+    border       : 0;
+    outline      : 0;
+}
+
+.inputStyle:focus {
+    outline: none;
+}
+
+.inputField {
+    border       : 0;
+    border-bottom: 1px solid black;
+}
+
+.loginInput {
+    background-color: #6846F4;
+    color           : white;
+    margin-bottom   : 0;
+    transition      : .2s ease;
+}
+
+.loginInput:hover {
+    cursor    : pointer;
+    box-shadow: 0 2px 6px 0 #6846F4
+}
+
+
+.auth_area {
+    display       : flex;
+    flex-direction: column;
+
+    align-items: center;
+    width      : 500px;
+    margin     : auto;
+    padding    : 10px;
+}
+
+.auth_area img {
+    width  : 60px;
+    padding: 10px;
+}
+
+.box {
+    display      : flex;
+    align-items  : center;
+    border       : .5px solid black;
+    width        : 400px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    cursor       : pointer;
+    transition   : .3s ease-in-out;
+
+}
+
+.box p {
+    flex-grow : 1;
+    text-align: center;
+    font-size : 20px;
+}
+
+.fb:hover {
+    box-shadow: 0 0 7px 0 rgba(14, 38, 173, 0.979);
+    border    : 1px solid blue;
+}
+
+.google:hover {
+    box-shadow: 0 0 7px 0 rgba(173, 33, 14, 0.979);
+    border    : 1px solid tomato;
+}

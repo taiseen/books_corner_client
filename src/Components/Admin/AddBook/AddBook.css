@@ -1,6 +1,8 @@
-span{
-    background: linear-gradient(90deg, rgb(73, 67, 67), rgb(230, 6, 6));
-    background-clip: text;
+
+/* for banner text gradient effect */
+span {
+    background             : linear-gradient(90deg, rgb(73, 67, 67), rgb(230, 6, 6));
+    background-clip        : text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -11,7 +13,6 @@ span{
 }
 
 .book_form {
-
     width           : 100%;
     padding         : 30px;
     border-radius   : 15px;
@@ -68,15 +69,16 @@ span{
 }
 
 .btn-success {
-    float: right;
-}
-
-.btn-success,
-.btn-danger {
+    float  : right;
     padding: 10px 20px !important;
     margin : 10px;
 }
 
+.spinnerLoading {
+
+    display        : flex;
+    justify-content: center;
+}
 
 @media screen and (max-width:560px) {
 

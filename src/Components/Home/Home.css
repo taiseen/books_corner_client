@@ -1,4 +1,4 @@
-* {
+/* * {
     margin    : 0;
     padding   : 0;
     box-sizing: border-box;
@@ -39,7 +39,7 @@ header nav ul li a:hover {
     cursor          : pointer;
     border-radius   : 5px;
     text-decoration : none;
-}
+} */
 
 /* 
 ######################################

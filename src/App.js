@@ -1,63 +1,67 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React, { createContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
 } from "react-router-dom";
 import Home from './Components/Home/Home';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
-
-import firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from './Components/FireBase/FireBaseConfig';
 import AllBooks from './Components/Admin/AllBooks/AllBooks';
 import AddBook from './Components/Admin/AddBook/AddBook';
-
-
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-} else {
-    firebase.app(); // if already initialized, use that one
-}
+import Login from './Components/Login/Login';
+import Header from './Components/Header/Header';
+import Order from './Components/Order/Order';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 
 // 1-April-2021
 // after finish ==>> attach output-ui
 // Last focus on README file...
 
+const exclusionPaths = [
+    '/admin/allBookList',
+    '/admin/addBook',
+]
+
+export const UserContext = createContext();
+
 const App = () => {
 
+    const [loginUser, setLoginUser] = useState({});
 
+    //const location = useLocation();
 
     return (
-        <div >
 
+        <UserContext.Provider value={[loginUser, setLoginUser]}>
             <Router>
+
+                {/* {window.location.pathname === '/admin/allBookList' ? null : <Header />} */}
+
+                {/* {exclusionPaths.indexOf(window.location.pathname) < 0 ? null : <Header /> } */}
+
+                {/* <Header /> */}
+
                 <Switch>
                     <Route path="/home">
                         <Home />
                     </Route>
 
-                    <Route path="/order">
-                        
-                    </Route>
+                    <PrivateRoute path="/order">
+                        <Order />
+                    </PrivateRoute>
 
-                    <Route path="/admin/allBookList">
+                    <PrivateRoute path="/admin/allBookList">
                         <AllBooks />
-                    
-                    </Route>
+                    </PrivateRoute>
 
-                    <Route path="/admin/addBook">
-                        <AddBook/>
-                    </Route>
+                    <PrivateRoute path="/admin/addBook">
+                        <AddBook />
+                    </PrivateRoute>
 
                     <Route path="/login">
-
+                        <Login />
                     </Route>
 
                     <Route exact path="/">
@@ -67,9 +71,12 @@ const App = () => {
                     <Route path="/*">
                         <PageNotFound />
                     </Route>
+
                 </Switch>
+
             </Router>
-        </div>
+        </UserContext.Provider>
+
     );
 };
 

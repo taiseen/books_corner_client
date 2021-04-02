@@ -1,0 +1,42 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+header {
+    margin         : 40px auto 10px;
+    display        : flex;
+    flex-flow      : wrap;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+header h5 {
+    font-size    : 50px;
+    margin-bottom: 20px;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color          : black;
+    padding        : 10px 30px;
+    font-weight    : bold;
+    font-size      : 25px;
+}
+
+header nav ul li a:hover {
+    background-color: #6946F4;
+    color           : white;
+    cursor          : pointer;
+    border-radius   : 5px;
+    text-decoration : none;
+}

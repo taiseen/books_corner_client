@@ -1,8 +1,8 @@
 .mani_admin {
-    margin : 0 auto;
-    width  : 100vw;
-    height : 100vh;
-    display: flex;
+    margin   : 0 auto;
+    width    : 100%;
+    display  : flex;
+    flex-flow: row;
 }
 
 .book_list_container {
@@ -14,7 +14,6 @@
 
 table {
     width          : 100%;
-    table-layout   : auto;
     text-align     : left;
     border-collapse: collapse;
     font-size      : 20px;
@@ -30,9 +29,9 @@ tbody tr td {
 }
 
 tbody tr td img {
-    width : 45px;
+    width       : 45px;
     padding-left: 10px;
-    cursor: pointer;
+    cursor      : pointer;
 }
 
 tr td:last-child {
@@ -46,6 +45,9 @@ tr:hover {
     cursor          : pointer;
 }
 
+.spinner {
+    margin: 20px;
+}
 
 /* 
 ####################################################
@@ -53,10 +55,10 @@ tr:hover {
 #################################################### 
 */
 
-@media screen and (max-width : 850px) {
+@media screen and (max-width : 750px) {
 
     .mani_admin {
-        flex-direction: column;
+        flex-direction: column wrap;
     }
 
 }
