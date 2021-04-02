@@ -13,6 +13,7 @@ import Login from './Components/Login/Login';
 import Header from './Components/Header/Header';
 import Order from './Components/Order/Order';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Checkout from './Components/Checkout/Checkout';
 
 
 // 1-April-2021
@@ -50,6 +51,10 @@ const App = () => {
 
                     <PrivateRoute path="/order">
                         <Order />
+                    </PrivateRoute>
+
+                    <PrivateRoute path="/checkout">
+                        <Checkout/>
                     </PrivateRoute>
 
                     <PrivateRoute path="/admin/allBookList">

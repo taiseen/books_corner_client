@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../App';
 import './BookBox.css';
 
 const BookBox = (props) => {
 
+    const [loginUser, setLoginUser] = useContext(UserContext);
     const { _id, bookName, authorName, price, imageURL } = props.bookInfo;
+    const [quantity, setQuantity] = useState(1);
 
     const handleBuyNow = () => {
-        console.log("Buy...");
+
+        setQuantity(quantity + 1);
+
+        const orderedBook = {
+            bookId: _id,
+            bookName,
+            price,
+            quantity,
+            time: new Date(),
+        }
+
+        const orderByUser = { ...loginUser, ...orderedBook };
+
+        //console.log({orderByUser});
+
+        const url = `http://localhost:5000/bookOrder`;
+        //const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderByUser)
+        })
+            .then(response => response.json())
+            .then(result => {
+                // return true||false
+                console.log(result);
+            })
+            .catch(err => console.log(err));
+
+
     }
-    
+
     return (
 
         <div className="book_box">

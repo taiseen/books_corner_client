@@ -72,3 +72,26 @@
     background-color: #2F226A;
     color           : white;
 }
+
+
+/* 
+####################################################
+            Responsive For Both Page
+#################################################### 
+*/
+
+@media screen and (max-width : 750px) {
+
+    .mani_admin {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width:560px) {
+
+    .sideBar {
+        width: 100%;
+    }
+
+}

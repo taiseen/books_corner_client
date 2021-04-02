@@ -7,6 +7,7 @@ import firebase from "firebase/app";
 import firebaseConfig from '../FireBase/FireBaseConfig';
 import "firebase/auth";
 import './Login.css'
+import Header from '../Header/Header';
 
 //############################################################
 // Initialize Firebase
@@ -22,6 +23,8 @@ const Login = () => {
 
     const [loginUser, setLoginUser] = useContext(UserContext);
 
+    console.log(loginUser);
+
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -36,6 +39,7 @@ const Login = () => {
             .then((result) => {
                 // Get User Needful Info...
                 const { displayName, email, photoURL } = result.user;
+                console.log(result.user);
 
                 // creating a new object...
                 const signInUser = {
@@ -50,38 +54,19 @@ const Login = () => {
             }).catch(error => console.log(error));
     }
 
-
-
     return (
         <div>
-            <header>
-                <div>
-                    <h1>Development</h1>
-                    <h5>Books Corner</h5>
-                </div>
-                <nav>
-                    <ul>
-                        <li><Link to="/home"><a>Home</a></Link></li>
-                        <li>
-                            <Link to="/order"><a>Order</a></Link>
-                        </li>
-                        <li>
-                            <Link to="/admin/allBookList"><a>Admin</a></Link>
-                        </li>
-                        <li><a>Deals</a></li>
-                        <li>
-                            <Link to="/login"><a>Login</a></Link>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-
+            <Header />
             {
                 // conditional rendering...
                 (loginUser.name || loginUser.email) ?
 
-                    <h1>Your Are LoggedIn </h1>
-
+                    <>
+                        <h1>Your Are LoggedIn </h1>
+                        <h2>Name : {loginUser.name}</h2>
+                        <h3>Email : {loginUser.email || 'email is missing'}</h3>
+                        <button onClick={() => setLoginUser({})}>Logout</button>
+                    </>
                     :
                     <>
                         <div class="login_area">

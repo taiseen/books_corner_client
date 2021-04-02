@@ -49,16 +49,3 @@ tr:hover {
     margin: 20px;
 }
 
-/* 
-####################################################
-            Responsive For Both Page
-#################################################### 
-*/
-
-@media screen and (max-width : 750px) {
-
-    .mani_admin {
-        flex-direction: column wrap;
-    }
-
-}

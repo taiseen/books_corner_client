@@ -80,10 +80,3 @@ span {
     justify-content: center;
 }
 
-@media screen and (max-width:560px) {
-
-    .sideBar {
-        width: 100%;
-    }
-
-}
