@@ -11,8 +11,6 @@ const BookBox = (props) => {
     const { name, email } = loginUser;
 
     const history = useHistory();
-    const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
 
     const handleBuyNow = () => {
 
@@ -41,6 +39,9 @@ const BookBox = (props) => {
                 .then(result => {
                     // return true||false
                     console.log(result);
+                    if(result){
+                        alert(`${bookName} Added...`)
+                    }
                 })
                 .catch(err => console.log(err));
         }else{
