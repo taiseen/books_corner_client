@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
 import './BookBox.css';
 
@@ -7,37 +8,44 @@ const BookBox = (props) => {
     const [loginUser, setLoginUser] = useContext(UserContext);
     const { _id, bookName, authorName, price, imageURL } = props.bookInfo;
     const [quantity, setQuantity] = useState(1);
+    const { name, email } = loginUser;
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
 
     const handleBuyNow = () => {
 
-        setQuantity(quantity + 1);
+        if (name || email) {
+            setQuantity(quantity + 1);
 
-        const orderedBook = {
-            bookId: _id,
-            bookName,
-            price,
-            quantity,
-            time: new Date(),
-        }
+            const orderedBook = {
+                bookId: _id,
+                bookName,
+                price,
+                quantity,
+                time: new Date(),
+            }
 
-        const orderByUser = { ...loginUser, ...orderedBook };
+            const orderByUser = { ...loginUser, ...orderedBook };
 
-        //console.log({orderByUser});
+            //console.log({orderByUser});
 
-        const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
-        fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderByUser)
-        })
-            .then(response => response.json())
-            .then(result => {
-                // return true||false
-                console.log(result);
+            const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderByUser)
             })
-            .catch(err => console.log(err));
-
-
+                .then(response => response.json())
+                .then(result => {
+                    // return true||false
+                    console.log(result);
+                })
+                .catch(err => console.log(err));
+        }else{
+            history.push('/login')
+        }
     }
 
     return (
