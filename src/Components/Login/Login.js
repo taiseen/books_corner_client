@@ -62,7 +62,7 @@ const Login = () => {
                 (loginUser.name || loginUser.email) ?
 
                     <div className="user_Info">
-                        <h2>Your Login Info </h2>
+                        <h2 className="showHeading">Your Login Info </h2>
 
                         <div className="uInfo">
                             <h3>Name : </h3> <h3>{loginUser.name}</h3>
@@ -72,7 +72,7 @@ const Login = () => {
                             <h3>Email : </h3> <h3>{loginUser.email || 'email is missing'}</h3>
                         </div>
 
-                        <button onClick={() => setLoginUser({})}>Logout</button>
+                        <button className="logOutBtn" onClick={() => setLoginUser({})}>Logout</button>
                     </div>
                     :
                     <>

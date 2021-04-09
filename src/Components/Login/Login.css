@@ -149,20 +149,25 @@ form a {
     padding-bottom : 10px;
 }
 
-h2 {
+.showHeading {
     margin-bottom : 20px;
     padding-bottom: 20px;
-    padding-left: 15px;
-
+    padding-left  : 15px;
     border-bottom : 1px dashed black;
 }
 
-button {
+.logOutBtn {
     background   : tomato;
     padding      : 10px 25px;
     margin       : 0 15px;
-    font-size    : 22px;
+    font-size    : 30px;
     font-weight  : bold;
     border       : 0;
     border-radius: 7px;
+    transition   : .2s ease-in-out;
+}
+
+.logOutBtn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color     : white
 }
