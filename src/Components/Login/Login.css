@@ -130,3 +130,39 @@ form a {
     box-shadow: 0 0 7px 0 rgba(173, 33, 14, 0.979);
     border    : 1px solid tomato;
 }
+
+
+.user_Info {
+    margin        : 60px auto;
+    padding       : 15px 0;
+    border        : 1px dashed black;
+    width         : 550px;
+    display       : flex;
+    flex-direction: column;
+}
+
+.uInfo {
+    display        : flex;
+    justify-content: space-between;
+    padding-left   : 15px;
+    padding-right  : 15px;
+    padding-bottom : 10px;
+}
+
+h2 {
+    margin-bottom : 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+
+    border-bottom : 1px dashed black;
+}
+
+button {
+    background   : tomato;
+    padding      : 10px 25px;
+    margin       : 0 15px;
+    font-size    : 22px;
+    font-weight  : bold;
+    border       : 0;
+    border-radius: 7px;
+}

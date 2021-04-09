@@ -1,6 +1,6 @@
 .order {
-    margin          : 60px 0px 0px 40px;
-    font-size       : 30px;
+    margin   : 60px 0px 0px 40px;
+    font-size: 30px;
 }
 
 .orderTable {
@@ -9,4 +9,11 @@
     text-align     : center;
     border-collapse: collapse;
     font-size      : 25px;
+}
+
+.checkOut {
+    background   : lightgreen;
+    
+    
+
 }

@@ -11,9 +11,16 @@ const Order = () => {
     const [allOrders, setAllOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    console.log({ allOrders });
+    //console.log( allOrders );
+
+
+    // const totalQuantity = allOrders.reduce((sum, total) => ({quantity: sum.quantity + total.quantity }),0);
+
+    // console.log("Total: ", totalQuantity.quantity);
+
 
     // GET data from server
+    // these data show to user for DELETE items or final conforming... 
     useEffect(() => {
         const url = `https://blueberry-surprise-27043.herokuapp.com/allOrders?email=${loginUser.email}`;
         fetch(url)
@@ -23,7 +30,7 @@ const Order = () => {
                 setAllOrders(data)
             })
             .catch(error => console.log(error))
-    }, [])
+    }, [allOrders]);
 
 
 
@@ -38,25 +45,32 @@ const Order = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    if (data) {
-                        alert('Delete Successfully...')
-                    }
+                    // if (data) {
+                    //     alert('Delete Successfully...')
+                    // }
                 });
         }
     }
 
+    const totalQuantity = allOrders.reduce((order, { quantity }) => order + quantity, 0);
+    const totalPrice = allOrders.reduce((order, { price }) => order + parseFloat(price), 0);
 
+    // console.log(totalQuantity);
+    // console.log(totalPrice.toFixed(2));
 
+    const goToCheckOut = () => {
+        console.log('go to check out page...');
+    }
     return (
         <div>
             <Header />
 
-            <div class="order">
+            <div className="order">
                 <h2>Your Order</h2>
             </div>
-            <div class="book_list_container">
+            <div className="book_list_container">
 
-                <table class="orderTable">
+                <table className="orderTable">
                     <thead>
                         <tr>
                             <th>Book Name</th>
@@ -74,8 +88,9 @@ const Order = () => {
 
                                     return <tr>
                                         <td>{bookName}</td>
+                                        {/* <td><input type="number" name="" value={quantity} id=""/></td> */}
                                         <td>{quantity}</td>
-                                        <td>{price}</td>
+                                        <td>${(price * quantity).toFixed(2)}</td>
                                         <td>
                                             <img src={del} alt="" onClick={() => handleDelete(order._id)} />
                                         </td>
@@ -84,6 +99,14 @@ const Order = () => {
                         }
 
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total Quantity and Prise</th>
+                            <th>{totalQuantity}</th>
+                            <th>${totalPrice.toFixed(2)}</th>
+                            <th onClick={goToCheckOut} className="checkOut">CheckOut</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

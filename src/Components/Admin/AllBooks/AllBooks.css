@@ -19,7 +19,7 @@ table {
     font-size      : 20px;
 }
 
-thead tr th {
+thead tr th , tfoot tr th  {
     background-color: #F5F6FA;
     padding         : 20px;
 }
