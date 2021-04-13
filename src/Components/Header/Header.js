@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import './Header.css'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBars } from '@fortawesome/free-solid-svg-icons'
+
 
 const Header = () => {
 
@@ -18,6 +21,11 @@ const Header = () => {
                 <h5>Books Corner</h5>
             </div>
             <nav>
+                <label htmlFor="checked" class="check_label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <input type="checkbox" name="" id="checked" />
+                
                 <ul>
                     <li><Link to="/home"><a>Home</a></Link></li>
                     <li>

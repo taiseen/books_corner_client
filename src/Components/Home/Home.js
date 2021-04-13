@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import BookBox from '../BookBox/BookBox';
+import React, { useContext, useEffect, useState } from 'react';
+import BookCard from '../BookCard/BookCard';
 import './Home.css'
 import searchIcon from '../../icons/search.png';
 import { Spinner } from 'react-bootstrap';
 import Header from '../Header/Header';
-
+import { UserContext } from '../../App';
+import { useHistory } from 'react-router';
 
 const Home = () => {
 
+    const [loginUser, setLoginUser] = useContext(UserContext);
+    const { name, email } = loginUser;
+
     const [allBooks, setAllBooks] = useState([]);
+    const [selectedBooks, setSelectedBooks] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [quantity, setQuantity] = useState(1);
+    const history = useHistory();
 
     // console.log(allBooks);
     // GET data from server
@@ -23,6 +30,82 @@ const Home = () => {
             })
             .catch(error => console.log(error))
     }, [])
+
+
+    const handleBuyNow = (bookInfo) => {
+        //console.log(bookInfo);
+
+        const { _id, bookName, price } = bookInfo;
+
+        if (name || email) {
+
+            let orderedBook;
+
+            const exist = allBooks.find(a => a._id === _id)
+console.log( exist);
+            // if(exist){
+            //     setSelectedBooks(
+            //         allBooks.map( a => a._id === _id ? {...exist, ty: exist.qty + 1} : a)
+            //     );                
+            // }else{
+            //     setSelectedBooks()
+            // }
+            orderedBook = {
+                bookId: _id,
+                bookName,
+                price,
+                quantity,
+                time: new Date(),
+            }
+
+            const orderByUser = { ...loginUser, ...orderedBook };
+
+            console.log(selectedBooks);
+            setSelectedBooks(orderByUser);
+
+            // allBooks.forEach(book => {
+            //     if (book._id == _id) {
+            //         setQuantity(quantity + 1);
+            //     }
+            // })
+
+            //let order = { ...selectedBooks, ...bookInfo }
+
+
+            // Object.keys(orderByUser).forEach(function(bookName) {
+            //     if (orderByUser[bookName] == orderedBook.bookName) {
+            //       //alert('exists');
+            //       setQuantity(quantity + 1);
+            //     }
+            //   });
+
+            // for (let bookName in orderByUser) {
+            //     if (orderByUser[bookName] === orderedBook.bookName) {
+            //         //alert(`${orderByUser[bookName]} - exists`);
+            //     }
+            // }
+
+            //console.log({orderByUser});
+
+            const url = `https://blueberry-surprise-27043.herokuapp.com/bookOrder`;
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderByUser)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    // return true||false
+                    //console.log(result);
+                    // if(result){
+                    //     alert(`${bookName} Added...`)
+                    // }
+                })
+                .catch(err => console.log(err));
+        } else {
+            history.push('/login')
+        }
+    }
 
 
     return (
@@ -40,7 +123,10 @@ const Home = () => {
                     {
                         loading ?
                             <Spinner animation="border" variant="primary" /> :
-                            allBooks.map(book => <BookBox key={book._id} bookInfo={book} />)
+                            allBooks.map(book => <BookCard
+                                key={book._id}
+                                bookInfo={book}
+                                handleBuyNow={handleBuyNow} />)
                     }
                 </div>
             </div>

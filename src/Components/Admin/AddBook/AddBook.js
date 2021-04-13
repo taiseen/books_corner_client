@@ -92,21 +92,21 @@ const AddBook = () => {
 
                         <div className="book_form">
                             <div className="input_flex">
-                                <label for="book_name">Book Name</label>
+                                <label htmlFor="book_name">Book Name</label>
                                 <input id="book_name" type="text" required
                                     placeholder="Enter Book Name"
                                     onChange={event => setBookName(event.target.value)} />
                             </div>
 
                             <div className="input_flex">
-                                <label for="author_name">Author Name</label>
+                                <label htmlFor="author_name">Author Name</label>
                                 <input id="author_name" type="text" required
                                     placeholder="Enter Name"
                                     onChange={event => setAuthorName(event.target.value)} />
                             </div>
 
                             <div className="input_flex">
-                                <label for="price">Add Price</label>
+                                <label htmlFor="price">Add Price</label>
                                 <input id="price" type="text" required
                                     placeholder="Enter Price $$$"
                                     onChange={event => setPrice(event.target.value)} />
@@ -114,7 +114,7 @@ const AddBook = () => {
 
                             <div className="input_flex file_width">
                                 <label>Add Book Cover Photo</label>
-                                <label for="file" className="inputLabel">
+                                <label htmlFor="file" className="inputLabel">
                                     <img src={upload} alt="" />
                                                 Upload photo</label>
                                 <input id="file" type="file" required

@@ -32,6 +32,15 @@ const Login = () => {
     const google = new firebase.auth.GoogleAuthProvider();
     const facebook = new firebase.auth.FacebookAuthProvider();
 
+
+    const storeUserToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
+            sessionStorage.setItem('token', idToken);
+        }).catch(function (error) {
+            // Handle error
+        });
+    }
+
     const handleAppLogin = (media) => {
 
         firebase.auth()
@@ -48,6 +57,8 @@ const Login = () => {
                     photo: photoURL,
                 }
                 console.log(signInUser);
+
+                storeUserToken();
                 setLoginUser(signInUser);
                 history.replace(from);
 
@@ -85,7 +96,7 @@ const Login = () => {
 
                                 <div>
 
-                                    <label for="checkbox" class="labelStyle">
+                                    <label htmlFor="checkbox" class="labelStyle">
                                         <input type="checkbox" name="" id="" class="inputStyle" />
                         Remember Me</label >
 

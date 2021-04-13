@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap';
 import Header from '../Header/Header';
 import del from '../../icons/delete.png';
 import './Order.css'
+import Checkout from '../Checkout/Checkout';
 
 const Order = () => {
 
@@ -60,6 +61,11 @@ const Order = () => {
 
     const goToCheckOut = () => {
         console.log('go to check out page...');
+
+        <Checkout
+            totalQuantity={totalQuantity}
+            totalPrice={totalPrice}
+        />
     }
     return (
         <div>
@@ -84,9 +90,9 @@ const Order = () => {
                             loading ?
                                 <Spinner animation="border" variant="primary" className="spinner" /> :
                                 allOrders.map(order => {
-                                    const { name, email, bookName, price, quantity } = order;
+                                    const { _id, bookName, price, quantity } = order;
 
-                                    return <tr>
+                                    return <tr key={_id}>
                                         <td>{bookName}</td>
                                         {/* <td><input type="number" name="" value={quantity} id=""/></td> */}
                                         <td>{quantity}</td>

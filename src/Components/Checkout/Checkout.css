@@ -1,0 +1,38 @@
+.main_box {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+}
+
+.main_box>h1 {
+    color: red;
+}
+
+.checked_out_box {
+    border    : 1px dashed black;
+    padding   : 10px 40px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.checked_out_box_title {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.checked_out_box_title>h2 {
+    color         : green;
+    font-weight   : bold;
+    letter-spacing: 2px;
+    font-size     : 35px;
+}
+
+.checked_out_box_title>h1 {
+    color: tomato;
+}
+
+.row {
+    display        : flex;
+    justify-content: space-between;
+    font-size      : 25px;
+}
