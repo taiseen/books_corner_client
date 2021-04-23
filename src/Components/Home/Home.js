@@ -146,7 +146,7 @@ const Home = () => {
             <div className="main_home">
                 <div className="search">
                     <img src={searchIcon} alt="" />
-                    <input type="text" placeholder="Search Your Book" onBlur={handleSearch} />
+                    <input type="text" placeholder="Search Your Book" onChange={handleSearch} />
                     <button>Search</button>
                 </div>
 
