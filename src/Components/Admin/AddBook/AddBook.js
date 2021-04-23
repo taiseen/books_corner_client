@@ -133,9 +133,9 @@ const AddBook = () => {
 
                 <span className="spinnerLoading">
                     {
-                        loading ? 
-                        <Spinner animation="border" variant="primary" /> :
-                        null                         
+                        loading ?
+                            <Spinner animation="border" variant="primary" /> :
+                            null
                     }
                 </span>
             </section>

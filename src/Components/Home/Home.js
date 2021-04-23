@@ -16,6 +16,9 @@ const Home = () => {
     const [selectedBooks, setSelectedBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [quantity, setQuantity] = useState(1);
+    const [searchBook, setSearchBook] = useState('');
+    const [getSearchBook, setGetSearchBook] = useState([]);
+
     const history = useHistory();
 
     // console.log(allBooks);
@@ -42,7 +45,7 @@ const Home = () => {
             let orderedBook;
 
             const exist = allBooks.find(a => a._id === _id)
-console.log( exist);
+            console.log(exist);
             // if(exist){
             //     setSelectedBooks(
             //         allBooks.map( a => a._id === _id ? {...exist, ty: exist.qty + 1} : a)
@@ -107,7 +110,35 @@ console.log( exist);
         }
     }
 
+    const handleSearch = (e) => {
+        //console.log(e.target.value);
 
+        setSearchBook(e.target.value);
+
+        //const searchValue = e.target.value;
+        // const url = `https://blueberry-surprise-27043.herokuapp.com/searchBook`;
+        // fetch(url, {
+        //     method: 'POST',
+        //     body: JSON.stringify(searchValue),
+        //     headers: { 'Content-Type': 'application/json' },
+        // })
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err)); 
+    }
+
+    console.log(searchBook);
+    console.log(getSearchBook);
+
+    useEffect(() => {
+        const url = 'https://blueberry-surprise-27043.herokuapp.com/searchingBook?searchBook=' + searchBook;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setGetSearchBook(data))
+            .catch(err => console.log(err));
+    }, [searchBook]);
+
+    
     return (
         <>
             <Header />
@@ -115,18 +146,23 @@ console.log( exist);
             <div className="main_home">
                 <div className="search">
                     <img src={searchIcon} alt="" />
-                    <input type="text" placeholder="Search Your Book" />
+                    <input type="text" placeholder="Search Your Book" onBlur={handleSearch} />
                     <button>Search</button>
                 </div>
 
                 <div className="books_container">
                     {
-                        loading ?
-                            <Spinner animation="border" variant="primary" /> :
-                            allBooks.map(book => <BookCard
-                                key={book._id}
-                                bookInfo={book}
-                                handleBuyNow={handleBuyNow} />)
+                        loading
+                            ? <Spinner animation="border" variant="primary" />
+                            : getSearchBook
+                                ? getSearchBook.map(book => <BookCard
+                                    key={book._id}
+                                    bookInfo={book}
+                                    handleBuyNow={handleBuyNow} />)
+                                : allBooks.map(book => <BookCard
+                                    key={book._id}
+                                    bookInfo={book}
+                                    handleBuyNow={handleBuyNow} />)
                     }
                 </div>
             </div>

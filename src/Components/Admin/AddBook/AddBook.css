@@ -75,7 +75,6 @@ span {
 }
 
 .spinnerLoading {
-
     display        : flex;
     justify-content: center;
 }

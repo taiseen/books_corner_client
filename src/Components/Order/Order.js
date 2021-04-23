@@ -5,12 +5,14 @@ import Header from '../Header/Header';
 import del from '../../icons/delete.png';
 import './Order.css'
 import Checkout from '../Checkout/Checkout';
+import { Link } from 'react-router-dom';
 
 const Order = () => {
 
     const [loginUser, setLoginUser] = useContext(UserContext);
     const [allOrders, setAllOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [totalCalculations, setTotalCalculations] = useState([])
 
     //console.log( allOrders );
 
@@ -39,7 +41,6 @@ const Order = () => {
         const userClick = window.confirm('Are you sure to delete this record?');
         if (userClick) {
             const url = `https://blueberry-surprise-27043.herokuapp.com/deleteOrder/${id}`;
-            //const url = `http://localhost:5000/deleteOrder/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -56,17 +57,24 @@ const Order = () => {
     const totalQuantity = allOrders.reduce((order, { quantity }) => order + quantity, 0);
     const totalPrice = allOrders.reduce((order, { price }) => order + parseFloat(price), 0);
 
-    // console.log(totalQuantity);
-    // console.log(totalPrice.toFixed(2));
+    //console.log(totalQuantity);
+    //console.log(totalPrice.toFixed(2));
+    //setTotalCalculations(totalQuantity)
+    //setTotalCalculations(totalPrice)
+    //console.log(totalCalculations);
 
     const goToCheckOut = () => {
-        console.log('go to check out page...');
+
+        console.log('go to checkOut page...');
 
         <Checkout
             totalQuantity={totalQuantity}
             totalPrice={totalPrice}
+            hello="i am from order page"
         />
+
     }
+
     return (
         <div>
             <Header />
@@ -103,14 +111,15 @@ const Order = () => {
                                     </tr>
                                 })
                         }
-
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Total Quantity and Prise</th>
                             <th>{totalQuantity}</th>
                             <th>${totalPrice.toFixed(2)}</th>
-                            <th onClick={goToCheckOut} className="checkOut">CheckOut</th>
+                            <th onClick={goToCheckOut} className="checkOut">
+                                <Link to="/checkout">CheckOut</Link>
+                            </th>
                         </tr>
                     </tfoot>
                 </table>
